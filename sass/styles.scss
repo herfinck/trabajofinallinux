@@ -1,0 +1,135 @@
+@import "nav";
+@import "titles";
+@import "foot";
+
+$letra: Arial;
+$imgWith: 30%;
+$textcolor: #0000ff;
+
+$estiloBody: (
+  altura: fit-content,
+  FamiliaTexto: Arial,
+  iniColor: lightskyblue,
+  finColor: white,
+);
+ /*Aplicando Extend*/
+ .hif{
+    @extend .forma;
+    margin-top: 70px;
+    text-transform: capitalize;
+    text-align: center;
+}
+ /*Aplicando mixin*/
+@mixin dimension ($ancho, $alto) {
+    height: $alto;
+    width: $ancho;
+}
+*{  padding: 0cm;
+    margin: 0cm;
+}
+body{
+    background-image: linear-gradient( map-get($estiloBody, iniColor), map-get($estiloBody, finColor));
+    font-family: map-get($estiloBody, familiaTexto);
+    min-height: map-get($estiloBody, altura); 
+}
+
+aside,article,.ad{
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img{
+    @include dimension ($imgWith,auto );
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    transition: height 2s, width 1s;
+}
+
+img:hover{
+    width: $imgWith +10%;
+}
+.forma{
+    line-height: 250%;
+    font-size: larger;
+    color: blue;
+}
+ /*defino Grid*/
+.main-header{
+    grid-area: cabecera;
+}
+.main-nav{
+    grid-area: nav;
+}
+.main-article{
+    grid-area: contenido;
+}
+.main-aside{
+    grid-area: side;
+}
+.main-footer{
+    grid-area: pie;
+}
+.envolve{
+    display: grid;
+    grid-template-areas: 
+    "cabecera"
+    "nav"
+    "contenido"
+    "side"
+    "pie";
+    padding: 10px;
+    justify-content: center;
+
+}
+@media (min-width:768px){
+    .envolve{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "cabecera   cabecera"
+        "nav        nav"
+        "contenido  side"
+        "pie        pie";
+        padding: 10px;
+    }
+    nav ul {
+       display: flex;
+       justify-content: center;
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: space-around;
+    }
+    footer nav ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: 10px;
+     }
+ }
+ 
+@media (min-width:1200px){
+    .envolve{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "cabecera  nav"
+        "contenido side"
+        "pie   pie";
+        padding: 10px;
+    }
+        nav ul {
+        display: flex ;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 5%;
+    }
+    footer nav ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: rown;
+        padding: 10px;
+    }
+    }
+    

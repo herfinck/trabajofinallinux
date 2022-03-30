@@ -1,0 +1,123 @@
+nav {
+  list-style: none; }
+  nav ul {
+    text-transform: uppercase;
+    text-align: center;
+    list-style: none; }
+    nav ul li {
+      font-weight: bold; }
+
+a {
+  text-decoration: none; }
+
+p {
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 250%;
+  font-size: larger;
+  color: blue; }
+
+h1 {
+  text-align: center; }
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  footer nav {
+    margin: 0%; }
+    footer nav ul {
+      padding: 10px; }
+
+/*Aplicando Extend*/
+.hif {
+  margin-top: 70px;
+  text-transform: capitalize;
+  text-align: center; }
+
+/*Aplicando mixin*/
+* {
+  padding: 0cm;
+  margin: 0cm; }
+
+body {
+  background-image: linear-gradient(lightskyblue, white);
+  min-height: fit-content; }
+
+aside, article, .ad {
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+img {
+  height: auto;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  transition: height 2s, width 1s; }
+
+img:hover {
+  width: 40%; }
+
+.forma, .hif {
+  line-height: 250%;
+  font-size: larger;
+  color: blue; }
+
+/*defino Grid*/
+.main-header {
+  grid-area: cabecera; }
+
+.main-nav {
+  grid-area: nav; }
+
+.main-article {
+  grid-area: contenido; }
+
+.main-aside {
+  grid-area: side; }
+
+.main-footer {
+  grid-area: pie; }
+
+.envolve {
+  display: grid;
+  grid-template-areas: "cabecera" "nav" "contenido" "side" "pie";
+  padding: 10px;
+  justify-content: center; }
+
+@media (min-width: 768px) {
+  .envolve {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "cabecera   cabecera" "nav        nav" "contenido  side" "pie        pie";
+    padding: 10px; }
+  nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+  footer nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 10px; } }
+
+@media (min-width: 1200px) {
+  .envolve {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "cabecera  nav" "contenido side" "pie   pie";
+    padding: 10px; }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 5%; }
+  footer nav ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: rown;
+    padding: 10px; } }
