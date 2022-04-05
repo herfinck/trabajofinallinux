@@ -61,6 +61,14 @@ img {
 img:hover {
   width: 40%; }
 
+.img2 {
+  height: auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  transition: height 2s, width 1s; }
+
 .forma, .hif {
   line-height: 250%;
   font-size: larger;
